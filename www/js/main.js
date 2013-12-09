@@ -30,12 +30,32 @@ var app = {
                 getLangShort(langLong, function (lang) {
                     mLanguage = lang;
                     //toast("langShort: " + lang);
-                    i18n.init({
-                        lng: lang,
-                        debug: true
-                    }, function () {
+                    
+                    var option = {
+                      lng: lang,
+                      debug: true,
+                      customLoad: function(lng, ns, options, loadComplete) {
+                         // load the file for given language and namespace
+                         console.log("lng: " + lng);
+                         var myurl = "translations/" + lng + "/translation.json";
+                         
+                         $.ajax({
+                            url: myurl,
+                            crossDomain: false,
+                            dataType: 'json'
+                        })
+                            .done(function (data) {
+                                loadComplete(null, data); // or loadComplete('some error'); if failed
+                            })
+                            .fail(function (xhr, err) {
+                                loadComplete(formatErrorMessage(xhr, err));
+                            });    
+                        }
+                    };
+                    
+                    i18n.init(option, function () {
                         // save to use translation function as resources are fetched
-                        //toast("init");
+                        toast("init");
                         bTransInit = true;
                         $("body").i18n();
                         var $elAppNameHeader = $('#appNameHeader');
