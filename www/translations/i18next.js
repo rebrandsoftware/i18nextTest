@@ -1358,10 +1358,12 @@
                         url: url,
                         success: function (data, status, xhr) {
                             f.log('loaded: ' + url);
+                            toast("loaded: " + url);
                             loadComplete(null, data);
                         },
                         error: function (xhr, status, error) {
                             f.log('failed loading: ' + url);
+                            toast("failed loading: " + url);
                             loadComplete('failed loading resource.json error: ' + error);
                         },
                         dataType: "json",

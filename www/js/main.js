@@ -29,13 +29,13 @@ var app = {
                 console.log("LangLong: " + langLong);
                 getLangShort(langLong, function (lang) {
                     mLanguage = lang;
-                    toast("langShort: " + lang);
+                    //toast("langShort: " + lang);
                     i18n.init({
                         lng: lang,
                         debug: true
                     }, function () {
                         // save to use translation function as resources are fetched
-                        toast("init");
+                        //toast("init");
                         bTransInit = true;
                         $("body").i18n();
                         var $elAppNameHeader = $('#appNameHeader');
@@ -84,7 +84,7 @@ var app = {
         $('#selLang').on('change', function () {
             var $elLang = $('#selLang');
             var lang = $elLang.val();
-            toast('Saving Lang: ' + lang);
+            //toast('Saving Lang: ' + lang);
             console.log("saving lang: " + lang);
                     console.log("LangShrt: " + lang);
                     mLanguage = lang;
@@ -97,7 +97,7 @@ var app = {
                         if (bTransInit === true) {
                             console.log('new lang selected');
                             $("body").i18n();
-                            toast("new lang");
+                            //toast("new lang");
 
                             //if we're debugging, delete all passwords and add new translated ones
                             //console.log("Deubbing password import")
