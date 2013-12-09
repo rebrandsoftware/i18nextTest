@@ -1388,13 +1388,16 @@
                 lng: lng,
                 ns: ns
             });
+            toast("url1: " + url);
             f.ajax({
                 url: url,
                 success: function (data, status, xhr) {
+                    toast("loaded1: " + url);
                     f.log('loaded: ' + url);
                     done(null, data);
                 },
                 error: function (xhr, status, error) {
+                    toast("failed1: " + url);
                     f.log('failed loading: ' + url);
                     done(error, {});
                 },
