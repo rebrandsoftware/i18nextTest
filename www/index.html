@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>i18nextTest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <!-- start globals -->
+    <script src="js/globals.js"></script>
+
+
+    <!-- start jquery mobile -->
+    <link rel="stylesheet" href="lib/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="lib/jquery.mobile.structure-1.3.2.min.css" />
+    <script src="lib/jquery-1.9.1.min.js"></script>
+    <script src="lib/jquery.mobile-1.3.2.min.js"></script>
+
+
+    <!-- start phonegap -->
+    <script src="phonegap.js"></script>
+    <!-- end phonegap -->
+    
+    <!-- start translations -->
+    <script src="translations/getLang.js"></script>
+    <script src="translations/i18next.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- Settings -->
+    <div data-role="page" id="prefs">
+        <div data-theme="a" data-role="header" data-position="fixed">
+            <a data-role="button" data-i18n="global.navBack" data-i18n-target=".ui-btn-text" data-theme="a" data-rel="back" data-icon="back" data-iconpos="left" class="ui-btn-left">
+            Back
+        </a>
+            <h3 id="appNameHeader" data-i18n="app.name">
+            i18nTest English
+            </h3>
+
+
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="selLang" data-i18n="label.lang">Language:
+                </label>
+                <select id="selLang" name="selLang" data-mini="true">
+                    <option data-i18n="lang.auto" value="auto">
+                        Auto
+                    </option>
+                    
+                    <option data-i18n="lang.de" value="de">
+                        German
+                    </option>
+                    
+                    <option data-i18n="lang.en" value="en">
+                        English
+                    </option>
+                </select>
+            </div>
+            
+            
+            
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="false">
+                    <legend data-i18n="label.securitySettings">
+                        Security Settings:
+                    </legend>
+                    <input id="chkClearClipboard" name="chkClearClipboard" type="checkbox">
+                    <label data-i18n="option.clearClip" data-i18n-target=".ui-btn-text" for="chkClearClipboard"  id="lblClearClipboard">
+                        Clear clipboard 30 seconds after copy
+                    </label>
+                    <input id="chkAutoLogout" name="chkAutoLogout" type="checkbox">
+                    <label data-i18n="option.autoLogout" data-i18n-target=".ui-btn-text" for="chkAutoLogout">
+                        Logout automatically after 2 minutes of inactivity
+                    </label>
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend data-i18n="label.launchWebsites">
+                        Launch Websites in:
+                    </legend>
+                    <input type="radio" name="radioLaunchWeb" id="radioLaunchweb-1" value="external" />
+                    <label data-i18n="option.systemBrowser" data-i18n-target=".ui-btn-text" for="radioLaunchweb-1">System Browser</label>
+                    <input type="radio" name="radioLaunchWeb" id="radioLaunchweb-2" value="internal" />
+                    <label data-i18n="option.appBrowser" data-i18n-target=".ui-btn-text" for="radioLaunchweb-2">In-app Browser</label>
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="false">
+                    <legend data-i18n="label.generatedPasswordLength">
+                        Generated Password Length:
+                    </legend>
+                    <input type="number" id="txtPassLength" />
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="false">
+                    <legend data-i18n="label.generatedPasswordChars">Generated Password Characters:
+                    </legend>
+                    <input id="chkLetters" name="chkLetters" type="checkbox">
+                    <label data-i18n="option.lowerLetters" data-i18n-target=".ui-btn-text" for="chkLetters">
+                        Lowercase letters
+                    </label>
+                    <input id="chkUppercase" name="chkUppercase" type="checkbox">
+                    <label data-i18n="option.upperLetters" data-i18n-target=".ui-btn-text" for="chkUppercase">
+                        Uppercase letters
+                    </label>
+                    <input id="chkNumbers" name="chkNumbers" type="checkbox">
+                    <label data-i18n="option.numbers" data-i18n-target=".ui-btn-text" for="chkNumbers">
+                        Numbers
+                    </label>
+                    <input id="chkSymbols" name="chkSymbols" type="checkbox">
+                    <label data-i18n="option.symbols" data-i18n-target=".ui-btn-text" for="chkSymbols">
+                        Symbols
+                    </label>
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+                    <legend data-i18n="label.testGenerator">
+                        Test Generator:
+                    </legend>
+                    <input type="text" name="txtGeneratedPassTest" id="txtGeneratedPassText2" value="" data-i18n="[placeholder]placeholder.generate" placeholder="Press generate button" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- start javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- end javascript -->
+
+</body>
+
+</html>

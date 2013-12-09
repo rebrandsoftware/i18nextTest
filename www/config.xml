@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.rebrandsoftware.i18nextTest"
+        versionCode="1" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+	<preference name="phonegap-version" value="3.1.0" />
+
+    <name>i18nextTest</name>
+
+    <description>
+        A test application designed to test whether i18next works properly on Windows Phone with Phonegap
+    </description>
+
+    <author href="http://www.rebrandsoftware.com" email="mike@rebrandsoftware.com">
+        Mike Gibson - Rebrand Software, LLC 
+    </author>
+</widget>
