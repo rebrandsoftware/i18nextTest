@@ -1246,6 +1246,7 @@
     var sync = {
 
         load: function (lngs, options, cb) {
+            toast("load");
             if (options.useLocalStorage) {
                 sync._loadLocal(lngs, options, function (err, store) {
                     var missingLngs = [];
@@ -1272,6 +1273,7 @@
         },
 
         _loadLocal: function (lngs, options, cb) {
+            toast("loadLocal");
             var store = {}, nowMS = new Date().getTime();
 
             if (window.localStorage) {
@@ -1296,6 +1298,7 @@
         },
 
         _storeLocal: function (store) {
+            toast("storeLocal");
             if (window.localStorage) {
                 for (var m in store) {
                     store[m].i18nStamp = new Date().getTime();
@@ -1306,10 +1309,12 @@
         },
 
         _fetch: function (lngs, options, cb) {
+            toast("fetch");
             var ns = options.ns,
                 store = {};
 
             if (!options.dynamicLoad) {
+                toast("dynamicload");
                 var todo = ns.namespaces.length * lngs.length,
                     errors;
 
@@ -1340,6 +1345,7 @@
                     });
                 });
             } else {
+                console.log("ELSE");
                 // Call this once our translation has returned.
                 var loadComplete = function (err, data) {
                     cb(null, data);
@@ -1347,12 +1353,15 @@
 
                 if (typeof options.customLoad == 'function') {
                     // Use the specified custom callback.
+                    toast("custom callback");
                     options.customLoad(lngs, ns.namespaces, options, loadComplete);
                 } else {
+                    toast("ajax");
                     var url = applyReplacement(options.resGetPath, {
                         lng: lngs.join('+'),
                         ns: ns.namespaces.join('+')
                     });
+                    toast("URL: " + url);
                     // load all needed stuff once
                     f.ajax({
                         url: url,
@@ -1374,6 +1383,7 @@
         },
 
         _fetchOne: function (lng, ns, options, done) {
+            toast("fetchOne");
             var url = applyReplacement(options.resGetPath, {
                 lng: lng,
                 ns: ns
@@ -1394,6 +1404,7 @@
         },
 
         postMissing: function (lng, ns, key, defaultValue, lngs) {
+            toast("postMissing");
             var payload = {};
             payload[key] = defaultValue;
 
