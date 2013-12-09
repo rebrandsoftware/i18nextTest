@@ -1388,7 +1388,7 @@
                 lng: lng,
                 ns: ns
             });
-            toast("url1a: " + url);
+            //toast("url1a: " + url);
             /*
             f.ajax({
                 url: url,
@@ -1415,7 +1415,7 @@
                 async: options.getAsync
             })
                 .done(function (data) {
-                    toast("loaded1a: " + url);
+                    //toast("loaded1a: " + url);
                     console.log("loaded1a: " + url);
                     f.log('loaded: ' + url);
                     done(null, data);
@@ -1431,7 +1431,7 @@
                 })
                 .always(function () {
                     //console.log('complete');
-                    console.log("always");
+                    //console.log("always");
                 });
             
         },
