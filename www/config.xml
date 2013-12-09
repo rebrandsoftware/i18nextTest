@@ -18,4 +18,15 @@
     <author href="http://www.rebrandsoftware.com" email="mike@rebrandsoftware.com">
         Mike Gibson - Rebrand Software, LLC 
     </author>
+    
+    <gap:platform name="winphone" />
+    
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/device"/>
+    
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.file" />
+    
+    <access origin="*" />
 </widget>
