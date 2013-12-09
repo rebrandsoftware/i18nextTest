@@ -1388,8 +1388,7 @@
                 lng: lng,
                 ns: ns
             });
-            //toast("url1a: " + url);
-            /*
+            toast("url1: " + url);
             f.ajax({
                 url: url,
                 success: function (data, status, xhr) {
@@ -1405,35 +1404,6 @@
                 dataType: "json",
                 async: options.getAsync
             });
-            */
-            
-            $.ajax({
-                url: url,
-                //data: myCloud,
-                //crossDomain: true,
-                dataType: 'json',
-                async: options.getAsync
-            })
-                .done(function (data) {
-                    //toast("loaded1a: " + url);
-                    console.log("loaded1a: " + url);
-                    f.log('loaded: ' + url);
-                    done(null, data);
-                })
-                .fail(function (xhr, err) {
-                    //console.log('failed');
-                    var responseTitle = $(xhr.responseText).filter('title').get(0);
-                    var response = $(xhr.responseText).filter('body').get(0);
-                    //console.log(response);
-                    toast($(responseTitle).text() + '\n' + formatErrorMessage(xhr, err) );
-                    console.log($(responseTitle).text() + '\n' + formatErrorMessage(xhr, err) );
-                    done(err, {}); 
-                })
-                .always(function () {
-                    //console.log('complete');
-                    //console.log("always");
-                });
-            
         },
 
         postMissing: function (lng, ns, key, defaultValue, lngs) {
